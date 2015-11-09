@@ -21,6 +21,10 @@ android:
         - addon-google_apis-google-$ANDROID_API_LEVEL
         - sys-img-armeabi-v7a-addon-google_apis-google-21
 
+branches:
+  except:
+    - master
+
 notifications:
    email:
      - sam.thngo+maddj-travis-ci@gmail.com
