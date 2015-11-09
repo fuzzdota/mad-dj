@@ -22,11 +22,13 @@ android:
         - sys-img-armeabi-v7a-addon-google_apis-google-21
 
 notifications:
-  email: false
+   email:
+     - sam.thngo+maddj-travis-ci@gmail.com
 
 before_install:
+  # We can also do 'git update-index --chmod=+x gradlew' in the git repository
   - chmod +x gradlew
-  - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:"$ANDROID_API_LEVEL --abi $ANDROID_ABI
+  - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:21" --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
 
 before_script:
