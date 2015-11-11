@@ -29,7 +29,7 @@ android:
         - extra-android-m2repository
         - addon-google_apis-google-$ANDROID_API_LEVEL
         # - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
-        -sys-img-x86_64-addon-google_apis-google-$ANDROID_API_LEVEL
+        - sys-img-x86_64-addon-google_apis-google-$ANDROID_API_LEVEL
 
 branches:
   except:
