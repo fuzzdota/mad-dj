@@ -11,9 +11,9 @@ env:
   global:
     - ANDROID_API_LEVEL=23
     - ANDROID_BUILD_TOOLS_VERSION=23.0.1
-    # - ANDROID_ABI=google_apis/armeabi-v7a
-    - ANDROID_ABI=google_apis/x86_64
+    - ANDROID_ABI=google_apis/armeabi-v7a
     - ADB_INSTALL_TIMEOUT=15
+    - ANDROID_EMULATOR_LEVEL=22
 
 android:
     components:
@@ -28,8 +28,7 @@ android:
         - extra-google-m2repository
         - extra-android-m2repository
         - addon-google_apis-google-$ANDROID_API_LEVEL
-        # - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
-        - sys-img-x86_64-addon-google_apis-google-$ANDROID_API_LEVEL
+        - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_EMULATOR_LEVEL
 
 branches:
   except:
@@ -40,7 +39,7 @@ notifications:
      - sam.thngo+maddj-travis-ci@gmail.com
 
 before_install:
-  - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:23" --abi $ANDROID_ABI
+  - echo no | android create avd --force -n test -t "Google Inc.:Google APIs:"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
 
 before_script:
